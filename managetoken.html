@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>DTE - Decentralized Token Exchange</title>
+	<script src="./app.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-default">
+	<div class="container">
+
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">DTE</a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="/index.html">Exchange Account</a></li>
+				<li><a href="/trading.html">Token Trading</a></li>
+				<li class="active"><a href="/managetoken.html">Manage Your Token<span class="sr-only">(current)</span></a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1>ERC20 Token Management</h1>
+			<h4>You have <span class="black"><span id="balanceTokenInToken"></span> Vinyl tokens</span> in your account</h4>
+		</div>
+	</div>
+
+<br/>
+
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="panel panel-default panel-primary">
+				<div class="panel-heading">Send Token</div>
+				<div class="panel-body">
+					<form>
+						<div class="form-group">
+							<label for="inputAmountSendToken">Amount in Token</label>
+							<input type="number" name="inputAmountSendToken" class="form-control" id="inputAmountSendToken" placeholder="e.g., 10">
+						</div>
+						<div class="form-group">
+							<label for="inputRecipientSendToken">To (address)</label>
+							<input type="text" class="form-control" id="inputRecipientSendToken" name="inputRecipientSendToken" placeholder="e.g. 0X1234abcde11...">
+						</div>
+						<button type="button" class="btn btn-default" onclick="App.sendToken();return false;">
+							Send Token
+						</button>
+					</form>
+				</div>
+				<div class="panel-footer">Send someone tokens</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="panel panel-default panel-primary">
+				<div class="panel-heading">Allow Token Withdrawal</div>
+				<div class="panel-body">
+					<form>
+						<div class="form-group">
+							<label for="inputAmountAllowToken">Total amount of tokens to allow</label>
+							<input type="number" name="inputAmountAllowToken" class="form-control" id="inputAmountAllowToken" placeholder="e.g., 10">
+						</div>
+						<div class="form-group">
+							<label for="inputRecipientAllowToken">Account allowed to withdraw</label>
+							<input type="text" class="form-control" id="inputRecipientAllowToken" name="inputRecipientAllowToken" placeholder="e.g. 0X1234abcde11...">
+						</div>
+						<button type="button" class="btn btn-default" onclick="App.allowanceToken();return false;">
+							Allow Token
+						</button>
+					</form>
+				</div>
+				<div class="panel-footer">Allow someone to withdraw tokens from your account</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="panel panel-default panel-primary">
+				<div class="panel-heading">Add Token to Exchange</div>
+				<div class="panel-body">
+					<form>
+						<div class="form-group">
+							<label for="inputTokenAddExchange">Name of Token</label>
+							<input type="text" name="inputTokenAddExchange" class="form-control" id="inputTokenAddExchange" placeholder="VINYL">
+						</div>
+						<div class="form-group">
+							<label for="inputNameAddExchange">Token contract (Address)</label>
+							<input type="text" name="inputNameAddExchange" class="form-control" id="inputNameAddExchange" placeholder="e.g. 0X1234abcde11...">
+						</div>
+						<button type="button" class="btn btn-default" onclick="App.addTokenToExchange(); return false;">
+							Add Token to Exchange
+						</button>
+					</form>
+				</div>
+				<div class="panel-footer">Add a Token contract you own to the Exchange</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-6">
+			<h3>Status from our Javascript</h3>
+			<div id="status"></div>
+		</div>
+		<div class="col-lg-6">
+			<h3>Important information</h3>
+			<span id="importantInformation"></span>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-6">
+			<h3>Token Events</h3>
+			<div id="tokenEvents"></div>
+		</div>
+		<div class="col-lg-6">
+			<h3>Exchange Events</h3>
+			<div id="exchangeEvents"></div>
+		</div>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+	window.addEventListener('load', function() {
+		App.initManageToken();
+	});
+</script>
+
+</body>
+	
+</html>
