@@ -6,7 +6,7 @@
 * Metamast, Mist, or Dapp-enabled browser
 * Account on Rinkeby testnet
 
-#### Contracts
+#### Rinkeby Contracts
 |Name|Address|
 |:---|:---|
 |Exchange address   | 0xeef36cfc9b343d6e36b33694c41a77ee81f03d7f |
